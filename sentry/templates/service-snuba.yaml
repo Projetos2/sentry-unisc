@@ -21,8 +21,8 @@ spec:
     targetPort: {{ template "snuba.port" }}
     protocol: TCP
     name: {{ .Values.service.name }}
-{{- if and (.Values.service.nodePort) (eq .Values.service.type "NodePort") }}
-    nodePort: {{ .Values.service.nodePort }}
+{{- if and (.Values.snuba.api.service.nodePort) (eq .Values.service.type "NodePort") }}
+    nodePort: {{ .Values.snuba.api.service.nodePort }}
 {{- end }}
 {{- if .Values.service.externalIPs }}
   externalIPs:

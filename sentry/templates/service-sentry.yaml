@@ -21,8 +21,8 @@ spec:
     targetPort: {{ template "sentry.port" }}
     protocol: TCP
     name: {{ .Values.service.name }}
-{{- if and (.Values.service.nodePort) (eq .Values.service.type "NodePort") }}
-    nodePort: {{ .Values.service.nodePort }}
+{{- if and (.Values.sentry.web.service.nodePort) (eq .Values.service.type "NodePort") }}
+    nodePort: {{ .Values.sentry.web.service.nodePort }}
 {{- end }}
 {{- if .Values.service.externalIPs }}
   externalIPs:
